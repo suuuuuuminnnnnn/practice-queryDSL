@@ -12,7 +12,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import practice.querydsl.productOrderSystem.global.security.jwt.TokenProvider;
 
 import java.io.IOException;
-import java.security.Security;
 
 @Component
 @RequiredArgsConstructor
