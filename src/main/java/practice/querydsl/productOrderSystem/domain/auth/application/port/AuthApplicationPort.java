@@ -1,4 +1,4 @@
-package practice.querydsl.productOrderSystem.domain.auth.application;
+package practice.querydsl.productOrderSystem.domain.auth.application.port;
 
 import practice.querydsl.productOrderSystem.global.security.jwt.dto.TokenDto;
 
@@ -9,5 +9,5 @@ public interface AuthApplicationPort {
 
     TokenDto refreshToken(String token);
 
-    void logout();
+    void logout(String token);
 }
