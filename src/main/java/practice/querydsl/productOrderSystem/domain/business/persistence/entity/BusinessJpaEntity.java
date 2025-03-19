@@ -17,9 +17,6 @@ public class BusinessJpaEntity extends BaseIdEntity {
     private String businessDescription;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "business_user",
-            joinColumns = @JoinColumn(name = "business_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
+    @JoinColumn(name = "business_user")
     private UserJpaEntity user;
 }

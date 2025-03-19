@@ -14,9 +14,11 @@ import practice.querydsl.productOrderSystem.domain.product.persistence.entity.Pr
 public class CartItemJpaEntity extends BaseIdEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart")
     private CartJpaEntity cart;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_product")
     private ProductJpaEntity product;
 
     private Long productQuantity;

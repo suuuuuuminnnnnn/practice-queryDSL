@@ -19,9 +19,6 @@ public class CartJpaEntity extends BaseIdEntity {
     private List<CartItemJpaEntity> cartItems;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "cart_user",
-            joinColumns = @JoinColumn(name = "cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
+    @JoinColumn(name = "cart_user")
     private UserJpaEntity user;
 }
