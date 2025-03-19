@@ -27,6 +27,5 @@ public class UserPersistenceAdapter implements UserPersistencePort {
                         .where(userJpaEntity.id.eq(userId))
                         .fetchOne())
                 .map(userMapper::toDomain);
-
     }
 }
