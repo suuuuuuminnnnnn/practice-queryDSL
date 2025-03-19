@@ -6,4 +6,6 @@ public interface UserPersistencePort {
    Long findMoneyByUserId(Long userId);
 
    UserJpaEntity findUserByEmail(String email);
+
+   void saveUser(UserJpaEntity user);
 }
