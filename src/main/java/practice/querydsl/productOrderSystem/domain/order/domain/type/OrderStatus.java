@@ -1,4 +1,4 @@
-package practice.querydsl.productOrderSystem.domain.Order.domain.type;
+package practice.querydsl.productOrderSystem.domain.order.domain.type;
 
 public enum OrderStatus {
     PENDING,

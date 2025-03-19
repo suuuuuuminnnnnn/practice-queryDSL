@@ -4,8 +4,8 @@ import lombok.Builder;
 import lombok.Getter;
 import practice.querydsl.productOrderSystem.domain.Order.domain.type.OrderStatus;
 import practice.querydsl.productOrderSystem.domain.user.domain.User;
-import practice.querydsl.productOrderSystem.domain.review.domain.review;
-import practice.querydsl.productOrderSystem.domain.product.domain.product;
+import practice.querydsl.productOrderSystem.domain.review.domain.Review;
+import practice.querydsl.productOrderSystem.domain.product.domain.Product;
 
 @Getter
 @Builder
@@ -13,8 +13,8 @@ public class Order {
 
     Long orderId;
     OrderStatus orderStatus;
-    Product product
+    Product product;
     Long productQuantity;
-    Review review
+    Review review;
     User user;
 }
