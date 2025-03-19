@@ -20,8 +20,7 @@ public class FindMoneyService implements FindMoneyUseCase {
     @Override
     public GetMoneyResponse execute() {
         UserJpaEntity user = userUtil.getCurrentUser();
-        User user1 = userPersistencePort.findUserByUserId(user.getId())
-                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
-        return new GetMoneyResponse(user1.getMoney());
+        Long money = userPersistencePort.findMoneyByUserId(user.getId());
+        return new GetMoneyResponse(money);
     }
 }
