@@ -17,4 +17,8 @@ public class UserJpaEntity extends BaseIdEntity {
     private Long money;
     @Enumerated(EnumType.STRING)
     private UserRole role;
+
+    public void addMoney(Long money) {
+        this.money += money;
+    }
 }
