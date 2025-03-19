@@ -9,9 +9,9 @@ import practice.querydsl.productOrderSystem.global.entity.BaseIdEntity;
 @Getter
 @NoArgsConstructor
 @Entity
-@AttributeOverride(name = "id", column = @Column(name = "user_id", nullable = false))
 @Table(name = "users")
 public class UserJpaEntity extends BaseIdEntity {
+
     private String email;
     private String password;
     private Long money;

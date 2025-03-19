@@ -11,7 +11,7 @@ import practice.querydsl.productOrderSystem.domain.review.persistence.entity.Rev
 
 @Getter
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 @AttributeOverride(name = "id", column = @Column(name = "order_id", nullable = false))
 @NoArgsConstructor
 public class OrderJpaEntity extends BaseIdEntity {

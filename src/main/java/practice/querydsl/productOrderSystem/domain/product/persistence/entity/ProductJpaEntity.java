@@ -10,11 +10,12 @@ import practice.querydsl.productOrderSystem.global.entity.BaseIdEntity;
 
 @Getter
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 @AttributeOverride(name = "id", column = @Column(name = "product_id", nullable = false))
 @NoArgsConstructor
 public class ProductJpaEntity extends BaseIdEntity {
 
+    @Enumerated(EnumType.STRING)
     private ProductCategory productCategory;
     private String productName;
     private Long productPrice;
