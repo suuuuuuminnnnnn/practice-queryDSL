@@ -4,15 +4,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.user.domain.type.UserRole;
+import practice.querydsl.productOrderSystem.global.entity.BaseIdEntity;
 
 @Getter
 @NoArgsConstructor
 @Entity
+@AttributeOverride(name = "id", column = @Column(name = "user_id", nullable = false))
 @Table(name = "users")
-public class UserJpaEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class UserJpaEntity extends BaseIdEntity {
     private String email;
     private String password;
     private Long money;
