@@ -1,16 +1,23 @@
 package practice.querydsl.productOrderSystem.domain.user.persistence.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.user.domain.type.UserRole;
-import practice.querydsl.productOrderSystem.global.entity.BaseIdEntity;
 
 @Getter
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
-public class UserJpaEntity extends BaseIdEntity {
+@Builder
+@AllArgsConstructor
+public class UserJpaEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String email;
     private String password;
@@ -22,3 +29,4 @@ public class UserJpaEntity extends BaseIdEntity {
         this.money += money;
     }
 }
+

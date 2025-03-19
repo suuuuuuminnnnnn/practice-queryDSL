@@ -1,27 +1,33 @@
 package practice.querydsl.productOrderSystem.domain.order.persistence.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.order.domain.type.OrderStatus;
-import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
-import practice.querydsl.productOrderSystem.global.entity.BaseIdEntity;
 import practice.querydsl.productOrderSystem.domain.product.persistence.entity.ProductJpaEntity;
 import practice.querydsl.productOrderSystem.domain.review.persistence.entity.ReviewJpaEntity;
+import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
 
 @Getter
 @Entity
 @Table(name = "orders")
-@AttributeOverride(name = "id", column = @Column(name = "order_id", nullable = false))
 @NoArgsConstructor
-public class OrderJpaEntity extends BaseIdEntity {
+@Builder
+@AllArgsConstructor
+public class OrderJpaEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
     private ProductJpaEntity product;
 
-    private OrderStatus orderStatus;
+    private OrderStatus status;
 
-    private Long productQuantity;
+    private Long quantity;
 
     @OneToOne
     private ReviewJpaEntity review;

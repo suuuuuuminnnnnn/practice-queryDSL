@@ -1,25 +1,31 @@
 package practice.querydsl.productOrderSystem.domain.product.persistence.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.business.persistence.entity.BusinessJpaEntity;
 import practice.querydsl.productOrderSystem.domain.product.domain.type.ProductCategory;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
-import practice.querydsl.productOrderSystem.global.entity.BaseIdEntity;
 
 @Getter
 @Entity
 @Table(name = "products")
-@AttributeOverride(name = "id", column = @Column(name = "product_id", nullable = false))
 @NoArgsConstructor
-public class ProductJpaEntity extends BaseIdEntity {
+@Builder
+@AllArgsConstructor
+public class ProductJpaEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Enumerated(EnumType.STRING)
-    private ProductCategory productCategory;
-    private String productName;
-    private Long productPrice;
-    private String productDescription;
+    private ProductCategory category;
+    private String name;
+    private Long price;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "product_business")

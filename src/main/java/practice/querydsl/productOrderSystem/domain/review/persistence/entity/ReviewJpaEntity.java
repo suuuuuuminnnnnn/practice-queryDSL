@@ -1,19 +1,25 @@
 package practice.querydsl.productOrderSystem.domain.review.persistence.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.order.persistence.entity.OrderJpaEntity;
-import practice.querydsl.productOrderSystem.global.entity.BaseIdEntity;
 
 @Getter
 @Entity
 @Table(name = "review")
-@AttributeOverride(name = "id", column = @Column(name = "review_id", nullable = false))
 @NoArgsConstructor
-public class ReviewJpaEntity extends BaseIdEntity {
+@Builder
+@AllArgsConstructor
+public class ReviewJpaEntity {
 
-    private String reviewTitle;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
 
     @ManyToOne
     @JoinColumn(name = "review_product")

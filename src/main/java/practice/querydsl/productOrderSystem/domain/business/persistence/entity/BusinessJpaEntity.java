@@ -1,20 +1,25 @@
 package practice.querydsl.productOrderSystem.domain.business.persistence.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
-import practice.querydsl.productOrderSystem.global.entity.BaseIdEntity;
 
 @Getter
 @Entity
 @Table(name = "business")
-@AttributeOverride(name = "id", column = @Column(name = "business_id", nullable = false))
 @NoArgsConstructor
-public class BusinessJpaEntity extends BaseIdEntity {
+@Builder
+@AllArgsConstructor
+public class BusinessJpaEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String businessName;
-    private String businessDescription;
+    private String name;
+    private String description;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "business_user")

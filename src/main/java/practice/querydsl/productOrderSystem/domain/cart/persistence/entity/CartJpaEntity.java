@@ -1,19 +1,25 @@
 package practice.querydsl.productOrderSystem.domain.cart.persistence.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
-import practice.querydsl.productOrderSystem.global.entity.BaseIdEntity;
 
 import java.util.List;
 
 @Getter
 @Entity
 @Table(name = "cart")
-@AttributeOverride(name = "id", column = @Column(name = "cart_id", nullable = false))
 @NoArgsConstructor
-public class CartJpaEntity extends BaseIdEntity {
+@Builder
+@AllArgsConstructor
+public class CartJpaEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @OneToMany
     private List<CartItemJpaEntity> cartItems;

@@ -7,8 +7,8 @@ import practice.querydsl.productOrderSystem.domain.user.domain.User;
 @Getter
 @Builder
 public class Business {
-    private final Long businessId;
-    private final String businessName;
-    private final String businessDescription;
+    private final Long id;
+    private final String name;
+    private final String description;
     private final User user;
 }

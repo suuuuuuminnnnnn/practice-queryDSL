@@ -1,17 +1,23 @@
 package practice.querydsl.productOrderSystem.domain.cart.persistence.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import practice.querydsl.productOrderSystem.global.entity.BaseIdEntity;
 import practice.querydsl.productOrderSystem.domain.product.persistence.entity.ProductJpaEntity;
 
 @Entity
 @Getter
 @Table(name = "cart_item")
 @NoArgsConstructor
-@AttributeOverride(name = "id", column = @Column(name = "cart_item_id", nullable = false))
-public class CartItemJpaEntity extends BaseIdEntity {
+@Builder
+@AllArgsConstructor
+public class CartItemJpaEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart")
@@ -21,5 +27,5 @@ public class CartItemJpaEntity extends BaseIdEntity {
     @JoinColumn(name = "cart_product")
     private ProductJpaEntity product;
 
-    private Long productQuantity;
+    private Long quantity;
 }

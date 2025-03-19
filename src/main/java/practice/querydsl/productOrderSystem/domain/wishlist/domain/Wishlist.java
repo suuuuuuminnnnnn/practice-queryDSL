@@ -8,7 +8,7 @@ import practice.querydsl.productOrderSystem.domain.user.domain.User;
 @Getter
 @Builder
 public class Wishlist {
-    private final Long wishlistId;
+    private final Long id;
     private final Product product;
     private final User user;
 }
