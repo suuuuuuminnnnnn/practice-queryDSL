@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Builder
 public class Cart {
-    Long cartId;
-    List<CartItem> cartItems;
-    User user;
+    private final Long cartId;
+    private final List<CartItem> cartItems;
+    private final User user;
 }

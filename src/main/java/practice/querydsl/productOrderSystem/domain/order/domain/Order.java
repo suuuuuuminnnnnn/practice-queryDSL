@@ -11,10 +11,10 @@ import practice.querydsl.productOrderSystem.domain.product.domain.Product;
 @Builder
 public class Order {
 
-    Long orderId;
-    OrderStatus orderStatus;
-    Product product;
-    Long productQuantity;
-    Review review;
-    User user;
+    private final Long orderId;
+    private final OrderStatus orderStatus;
+    private final Product product;
+    private final Long productQuantity;
+    private final Review review;
+    private final User user;
 }

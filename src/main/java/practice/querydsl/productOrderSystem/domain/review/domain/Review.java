@@ -9,10 +9,10 @@ import practice.querydsl.productOrderSystem.domain.order.domain.Order;
 @Getter
 @Builder
 public class Review {
-    Long reviewId;
-    String reviewTitle;
-    String reviewContent;
-    Product product;
-    User author;
-    Order order;
+    private final Long reviewId;
+    private final String reviewTitle;
+    private final String reviewContent;
+    private final Product product;
+    private final User author;
+    private final Order order;
 }
