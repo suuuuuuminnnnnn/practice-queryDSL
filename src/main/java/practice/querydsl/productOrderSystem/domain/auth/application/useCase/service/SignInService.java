@@ -42,6 +42,7 @@ public class SignInService implements SignInUseCase {
                 .expTime(tokenDto.getRefreshTokenExpAt())
                 .build();
         refreshTokenJpaRepository.save(refreshToken);
+
         return new SignInResponse(tokenDto);
     }
 }
