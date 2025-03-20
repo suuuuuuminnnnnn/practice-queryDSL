@@ -21,3 +21,6 @@ spring:
 
 jwt:
   secret: ${SECRET_KEY}
+
+server:
+  port: 8081

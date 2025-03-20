@@ -1,16 +1,13 @@
 package practice.querydsl.productOrderSystem.domain.auth.application.useCase.service;
 
 import lombok.RequiredArgsConstructor;
-import org.antlr.v4.runtime.Token;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import practice.querydsl.productOrderSystem.domain.auth.application.useCase.SignInUseCase;
 import practice.querydsl.productOrderSystem.domain.auth.domain.RefreshToken;
 import practice.querydsl.productOrderSystem.domain.auth.persistence.repository.RefreshTokenJpaRepository;
-import practice.querydsl.productOrderSystem.domain.auth.presentation.data.SignInResponse;
-import practice.querydsl.productOrderSystem.domain.user.domain.User;
+import practice.querydsl.productOrderSystem.domain.auth.presentation.data.response.SignInResponse;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
-import practice.querydsl.productOrderSystem.domain.user.persistence.mapper.UserMapper;
 import practice.querydsl.productOrderSystem.domain.user.persistence.port.UserPersistencePort;
 import practice.querydsl.productOrderSystem.global.security.jwt.TokenProvider;
 import practice.querydsl.productOrderSystem.global.security.jwt.dto.TokenDto;
