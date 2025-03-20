@@ -8,4 +8,6 @@ public interface UserPersistencePort {
    UserJpaEntity findUserByEmail(String email);
 
    void saveUser(UserJpaEntity user);
+
+   boolean existsUserByUserId(Long userId);
 }

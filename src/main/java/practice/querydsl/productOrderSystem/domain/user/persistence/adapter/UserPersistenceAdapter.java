@@ -38,4 +38,14 @@ public class UserPersistenceAdapter implements UserPersistencePort {
     public void saveUser(UserJpaEntity user) {
         userJpaRepository.save(user);
     }
+
+    @Override
+    public boolean existsUserByUserId(Long userId) {
+        UserJpaEntity result = queryFactory
+                .selectFrom(userJpaEntity)
+                .where(userJpaEntity.id.eq(userId))
+                .fetchOne();
+
+        return result != null;
+    }
 }

@@ -103,7 +103,7 @@ public class TokenProvider {
         return claims.getExpiration().getTime();
     }
 
-    private String removePrefix(String token) {
+    public String removePrefix(String token) {
         return token.replace(BEARER_PREFIX, "");
     }
 }
