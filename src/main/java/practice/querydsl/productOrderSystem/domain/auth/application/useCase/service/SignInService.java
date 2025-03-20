@@ -18,13 +18,12 @@ import practice.querydsl.productOrderSystem.global.util.UserUtil;
 public class SignInService implements SignInUseCase {
 
     private final RefreshTokenJpaRepository refreshTokenJpaRepository;
-    private final UserPersistencePort userPersistencePort;
     private final UserUtil userUtil;
     private final PasswordEncoder passwordEncoder;
     private final TokenProvider tokenProvider;
 
     @Override
-    public SignInResponse execute(String email, String password) {
+    public TokenDto execute(String email, String password) {
         UserJpaEntity userJpaEntity = userUtil.getCurrentUser();
         if (!passwordEncoder.matches(password, userJpaEntity.getPassword())) {
             throw new RuntimeException("비밀번호가 틀렸습니다.");
@@ -40,6 +39,6 @@ public class SignInService implements SignInUseCase {
                 .build();
         refreshTokenJpaRepository.save(refreshToken);
 
-        return new SignInResponse(tokenDto);
+        return tokenDto;
     }
 }

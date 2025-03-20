@@ -1,7 +1,7 @@
 package practice.querydsl.productOrderSystem.domain.auth.application.useCase;
 
-import practice.querydsl.productOrderSystem.domain.auth.presentation.data.response.SignInResponse;
+import practice.querydsl.productOrderSystem.global.security.jwt.dto.TokenDto;
 
 public interface SignInUseCase {
-    SignInResponse execute(String email, String password);
+    TokenDto execute(String email, String password);
 }
