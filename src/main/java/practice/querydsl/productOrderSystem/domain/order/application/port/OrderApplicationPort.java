@@ -6,7 +6,7 @@ import practice.querydsl.productOrderSystem.domain.order.presentation.data.respo
 import java.util.List;
 
 public interface OrderApplicationPort {
-    void orderProduct(Long productId, Long quntity, OrderStatus status);
+    void orderProduct(Long productId, Long quantity, OrderStatus status);
 
     List<GetOrderResponse> findAllOrders();
 
