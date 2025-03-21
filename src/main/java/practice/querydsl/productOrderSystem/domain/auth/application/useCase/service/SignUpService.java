@@ -8,13 +8,11 @@ import practice.querydsl.productOrderSystem.domain.auth.application.useCase.Sign
 import practice.querydsl.productOrderSystem.domain.user.domain.type.UserRole;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
 import practice.querydsl.productOrderSystem.domain.user.persistence.port.UserPersistencePort;
-import practice.querydsl.productOrderSystem.global.redis.util.RedisUtil;
 
 @Service
 @RequiredArgsConstructor
 public class SignUpService implements SignUpUseCase {
 
-    private final RedisUtil redisUtil;
     private final UserPersistencePort userPersistencePort;
     private final PasswordEncoder passwordEncoder;
 

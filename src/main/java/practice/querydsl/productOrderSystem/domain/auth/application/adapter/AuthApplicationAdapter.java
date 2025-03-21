@@ -6,7 +6,6 @@ import practice.querydsl.productOrderSystem.domain.auth.application.useCase.LogO
 import practice.querydsl.productOrderSystem.domain.auth.application.useCase.ReissueTokenUseCase;
 import practice.querydsl.productOrderSystem.domain.auth.application.useCase.SignInUseCase;
 import practice.querydsl.productOrderSystem.domain.auth.application.useCase.SignUpUseCase;
-import practice.querydsl.productOrderSystem.domain.user.domain.User;
 import practice.querydsl.productOrderSystem.domain.user.domain.type.UserRole;
 import practice.querydsl.productOrderSystem.global.annotation.adapter.Adapter;
 import practice.querydsl.productOrderSystem.global.annotation.adapter.constant.AdapterType;
