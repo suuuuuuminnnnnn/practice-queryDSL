@@ -15,12 +15,10 @@ import practice.querydsl.productOrderSystem.global.util.UserUtil;
 public class FindMoneyService implements FindMoneyUseCase {
 
     private final UserUtil userUtil;
-    private final UserPersistencePort userPersistencePort;
 
     @Override
     public GetMoneyResponse execute() {
         UserJpaEntity user = userUtil.getCurrentUser();
-        Long money = userPersistencePort.findMoneyByUserId(user.getId());
-        return new GetMoneyResponse(money);
+        return new GetMoneyResponse(user.getMoney());
     }
 }

@@ -29,13 +29,13 @@ public class AuthController {
     }
 
     @PostMapping("/reissue-token")
-    public ResponseEntity<TokenDto> reissueToken(@RequestHeader("/Authorization") String token) {
+    public ResponseEntity<TokenDto> reissueToken(@RequestHeader("Authorization") String token) {
         TokenDto tokenDto = authApplicationPort.refreshToken(token);
         return ResponseEntity.ok().body(tokenDto);
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteToken(@RequestHeader("/Authorization") String token) {
+    public ResponseEntity<Void> deleteToken(@RequestHeader("Authorization") String token) {
         authApplicationPort.logout(token);
         return ResponseEntity.noContent().build();
     }
