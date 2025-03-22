@@ -1,15 +1,12 @@
 package practice.querydsl.productOrderSystem.domain.cart.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
 
 import java.util.List;
 
-@Getter
+@Data
 @Entity
 @Table(name = "cart")
 @NoArgsConstructor

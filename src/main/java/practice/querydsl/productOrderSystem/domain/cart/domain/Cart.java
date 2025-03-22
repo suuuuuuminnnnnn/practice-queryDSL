@@ -10,6 +10,10 @@ import java.util.List;
 @Builder
 public class Cart {
     private final Long id;
-    private final List<CartItem> cartItems;
+    private  List<CartItem> cartItems;
     private final User user;
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
 }
