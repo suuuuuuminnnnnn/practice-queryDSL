@@ -2,6 +2,7 @@ package practice.querydsl.productOrderSystem.domain.order.application.useCase.se
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import practice.querydsl.productOrderSystem.domain.order.application.useCase.OrderProductUseCase;
 import practice.querydsl.productOrderSystem.domain.order.domain.Order;
 import practice.querydsl.productOrderSystem.domain.order.domain.type.OrderStatus;
@@ -22,6 +23,7 @@ public class OrderProductService implements OrderProductUseCase {
     private final UserUtil userUtil;
 
     @Override
+    @Transactional
     public void execute(Long productId, Long quantity, OrderStatus status) {
         UserJpaEntity userJpaEntity = userUtil.getCurrentUser();
 
