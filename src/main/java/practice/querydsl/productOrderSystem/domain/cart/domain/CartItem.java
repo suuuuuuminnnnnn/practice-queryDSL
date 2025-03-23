@@ -8,8 +8,8 @@ import practice.querydsl.productOrderSystem.domain.product.domain.Product;
 @Data
 @Builder
 public class CartItem {
-    private final Long id;
-    private final Cart cart;
-    private final Product product;
-    private final Long quantity;
+    private Long id;
+    private Cart cart;
+    private Product product;
+    private Long quantity;
 }

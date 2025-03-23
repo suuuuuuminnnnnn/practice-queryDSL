@@ -9,11 +9,11 @@ import practice.querydsl.productOrderSystem.domain.business.domain.Business;
 @Getter
 @Builder
 public class Product {
-    private final Long id;
-    private final ProductCategory category;
-    private final String name;
-    private final Long price;
-    private final String description;
-    private final Business business;
-    private final User user;
+    private Long id;
+    private ProductCategory category;
+    private String name;
+    private Long price;
+    private String description;
+    private Business business;
+    private User user;
 }
