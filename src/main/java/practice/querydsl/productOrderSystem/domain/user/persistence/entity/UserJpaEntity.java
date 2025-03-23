@@ -28,5 +28,9 @@ public class UserJpaEntity {
     public void addMoney(Long money) {
         this.money += money;
     }
+
+    public void removeMoney(Long money) {
+        this.money -= money;
+    }
 }
 

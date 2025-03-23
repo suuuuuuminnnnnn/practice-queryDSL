@@ -33,6 +33,8 @@ public class OrderProductService implements OrderProductUseCase {
                 .user(userMapper.toDomain(userJpaEntity))
                 .build();
 
+        userJpaEntity.removeMoney(product.getPrice());
+
         orderPersistencePort.saveOrder(order);
     }
 }
