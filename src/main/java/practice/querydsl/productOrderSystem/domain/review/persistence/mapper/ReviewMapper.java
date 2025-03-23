@@ -2,7 +2,6 @@ package practice.querydsl.productOrderSystem.domain.review.persistence.mapper;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import practice.querydsl.productOrderSystem.domain.order.persistence.mapper.OrderMapper;
 import practice.querydsl.productOrderSystem.domain.product.persistence.mapper.ProductMapper;
 import practice.querydsl.productOrderSystem.domain.review.domain.Review;
 import practice.querydsl.productOrderSystem.domain.review.persistence.entity.ReviewJpaEntity;
@@ -11,10 +10,8 @@ import practice.querydsl.productOrderSystem.domain.user.persistence.mapper.UserM
 @Component
 @RequiredArgsConstructor
 public class ReviewMapper {
-
     private final ProductMapper productMapper;
     private final UserMapper userMapper;
-    private final OrderMapper orderMapper;
 
     public Review toDomain(ReviewJpaEntity reviewJpaEntity) {
         return Review.builder()
@@ -23,7 +20,6 @@ public class ReviewMapper {
                 .content(reviewJpaEntity.getContent())
                 .product(productMapper.toDomain(reviewJpaEntity.getProduct()))
                 .author(userMapper.toDomain(reviewJpaEntity.getUser()))
-                .order(orderMapper.toDomain(reviewJpaEntity.getOrder()))
                 .build();
     }
 
@@ -34,7 +30,6 @@ public class ReviewMapper {
                 .content(review.getContent())
                 .product(productMapper.toEntity(review.getProduct()))
                 .user(userMapper.toEntity(review.getAuthor()))
-                .order(orderMapper.toEntity(review.getOrder()))
                 .build();
     }
 }

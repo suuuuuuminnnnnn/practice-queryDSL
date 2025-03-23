@@ -1,7 +1,10 @@
 package practice.querydsl.productOrderSystem.domain.cart.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
 
 import java.util.List;

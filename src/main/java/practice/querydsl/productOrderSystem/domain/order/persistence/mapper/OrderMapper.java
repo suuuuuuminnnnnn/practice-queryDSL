@@ -6,9 +6,8 @@ import practice.querydsl.productOrderSystem.domain.order.domain.Order;
 import practice.querydsl.productOrderSystem.domain.order.persistence.entity.OrderJpaEntity;
 import practice.querydsl.productOrderSystem.domain.order.presentation.data.response.GetOrderResponse;
 import practice.querydsl.productOrderSystem.domain.product.persistence.mapper.ProductMapper;
-import practice.querydsl.productOrderSystem.domain.user.persistence.mapper.UserMapper;
 import practice.querydsl.productOrderSystem.domain.review.persistence.mapper.ReviewMapper;
-import practice.querydsl.productOrderSystem.domain.user.presentation.data.response.GetMoneyResponse;
+import practice.querydsl.productOrderSystem.domain.user.persistence.mapper.UserMapper;
 
 @Component
 @RequiredArgsConstructor

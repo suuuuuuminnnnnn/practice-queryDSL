@@ -7,7 +7,6 @@ import practice.querydsl.productOrderSystem.domain.order.persistence.mapper.Orde
 import practice.querydsl.productOrderSystem.domain.order.persistence.port.OrderPersistencePort;
 import practice.querydsl.productOrderSystem.domain.order.presentation.data.response.GetOrderResponse;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
-import practice.querydsl.productOrderSystem.domain.user.presentation.data.response.GetMoneyResponse;
 import practice.querydsl.productOrderSystem.global.util.UserUtil;
 
 import java.util.List;
