@@ -4,7 +4,6 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.order.domain.Order;
 import practice.querydsl.productOrderSystem.domain.order.domain.type.OrderStatus;
-import practice.querydsl.productOrderSystem.domain.order.persistence.entity.OrderJpaEntity;
 import practice.querydsl.productOrderSystem.domain.order.persistence.mapper.OrderMapper;
 import practice.querydsl.productOrderSystem.domain.order.persistence.port.OrderPersistencePort;
 import practice.querydsl.productOrderSystem.domain.order.persistence.repository.OrderJpaRepository;
@@ -25,8 +24,8 @@ public class OrderPersistenceAdapter implements OrderPersistencePort {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public void saveOrder(OrderJpaEntity order) {
-        orderJpaRepository.save(order);
+    public void saveOrder(Order order) {
+        orderJpaRepository.save(orderMapper.toEntity(order));
     }
 
     @Override
@@ -42,7 +41,7 @@ public class OrderPersistenceAdapter implements OrderPersistencePort {
     }
 
     @Override
-    public void deleteOrder(OrderJpaEntity order) {
-        orderJpaRepository.delete(order);
+    public void deleteOrder(Order order) {
+        orderJpaRepository.delete(orderMapper.toEntity(order));
     }
 }
