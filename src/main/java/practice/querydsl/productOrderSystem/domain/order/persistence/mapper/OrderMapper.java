@@ -4,8 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import practice.querydsl.productOrderSystem.domain.order.domain.Order;
 import practice.querydsl.productOrderSystem.domain.order.persistence.entity.OrderJpaEntity;
+import practice.querydsl.productOrderSystem.domain.order.presentation.data.response.GetOrderResponse;
 import practice.querydsl.productOrderSystem.domain.product.persistence.mapper.ProductMapper;
 import practice.querydsl.productOrderSystem.domain.user.persistence.mapper.UserMapper;
+import practice.querydsl.productOrderSystem.domain.review.persistence.mapper.ReviewMapper;
+import practice.querydsl.productOrderSystem.domain.user.presentation.data.response.GetMoneyResponse;
 
 @Component
 @RequiredArgsConstructor
@@ -13,6 +16,7 @@ public class OrderMapper {
 
     private final ProductMapper productMapper;
     private final UserMapper userMapper;
+    private final ReviewMapper reviewMapper;
 
     public Order toDomain(OrderJpaEntity orderJpaEntity) {
         return Order.builder()
@@ -20,7 +24,7 @@ public class OrderMapper {
                 .status(orderJpaEntity.getStatus())
                 .product(productMapper.toDomain(orderJpaEntity.getProduct()))
                 .quantity(orderJpaEntity.getQuantity())
-                .review(orderJpaEntity.getReview())
+                .review(reviewMapper.toDomain(orderJpaEntity.getReview()))
                 .user(userMapper.toDomain(orderJpaEntity.getUser()))
                 .build();
     }
@@ -31,9 +35,17 @@ public class OrderMapper {
                 .status(order.getStatus())
                 .product(productMapper.toEntity(order.getProduct()))
                 .quantity(order.getQuantity())
-                .review(order.getReview())
+                .review(reviewMapper.toEntity(order.getReview()))
                 .user(userMapper.toEntity(order.getUser()))
                 .build();
+    }
 
+    public GetOrderResponse toResponse(Order order) {
+        return GetOrderResponse.builder()
+                .id(order.getId())
+                .product(order.getProduct())
+                .quantity(order.getQuantity())
+                .price(order.getProduct().getPrice())
+                .build();
     }
 }

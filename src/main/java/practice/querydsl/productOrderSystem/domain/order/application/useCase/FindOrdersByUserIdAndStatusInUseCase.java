@@ -4,6 +4,6 @@ import practice.querydsl.productOrderSystem.domain.order.presentation.data.respo
 
 import java.util.List;
 
-public interface findOrdersByUserIdAndStatusInUseCase {
+public interface FindOrdersByUserIdAndStatusInUseCase {
     List<GetOrderResponse> execute();
 }

@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.order.persistence.entity.OrderJpaEntity;
+import practice.querydsl.productOrderSystem.domain.product.persistence.entity.ProductJpaEntity;
+import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
 
 @Getter
 @Entity
@@ -21,13 +23,15 @@ public class ReviewJpaEntity {
 
     private String title;
 
+    private String content;
+
     @ManyToOne
     @JoinColumn(name = "review_product")
-    private ReviewJpaEntity review;
+    private ProductJpaEntity product;
 
     @ManyToOne
     @JoinColumn(name = "review_user")
-    private ReviewJpaEntity user;
+    private UserJpaEntity user;
 
     @ManyToOne
     @JoinColumn(name = "review_order")
