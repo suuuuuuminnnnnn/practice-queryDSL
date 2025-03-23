@@ -10,5 +10,7 @@ public interface OrderPersistencePort {
 
     List<Order> findOrdersByUserIdAndStatusIn(UserJpaEntity user);
 
+    Order findByOrderId(Long orderId);
+
     void deleteOrder(Order order);
 }

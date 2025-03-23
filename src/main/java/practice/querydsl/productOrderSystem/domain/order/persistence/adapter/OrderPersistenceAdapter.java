@@ -4,6 +4,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import practice.querydsl.productOrderSystem.domain.order.domain.Order;
 import practice.querydsl.productOrderSystem.domain.order.domain.type.OrderStatus;
+import practice.querydsl.productOrderSystem.domain.order.persistence.entity.OrderJpaEntity;
 import practice.querydsl.productOrderSystem.domain.order.persistence.mapper.OrderMapper;
 import practice.querydsl.productOrderSystem.domain.order.persistence.port.OrderPersistencePort;
 import practice.querydsl.productOrderSystem.domain.order.persistence.repository.OrderJpaRepository;
@@ -38,6 +39,16 @@ public class OrderPersistenceAdapter implements OrderPersistencePort {
                 .stream()
                 .map(orderMapper::toDomain)
                 .toList();
+    }
+
+    @Override
+    public Order findByOrderId(Long orderId) {
+        OrderJpaEntity entity = queryFactory
+                .selectFrom(orderJpaEntity)
+                .where(orderJpaEntity.id.eq(orderId))
+                .fetchOne();
+
+        return orderMapper.toDomain(entity);
     }
 
     @Override
