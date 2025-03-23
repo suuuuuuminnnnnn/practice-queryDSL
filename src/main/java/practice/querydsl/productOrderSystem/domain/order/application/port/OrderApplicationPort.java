@@ -8,7 +8,7 @@ import java.util.List;
 public interface OrderApplicationPort {
     void orderProduct(Long productId, Long quantity, OrderStatus status);
 
-    List<GetOrderResponse> findAllOrders();
+    List<GetOrderResponse> findOrdersByUserIdAndStatusIn();
 
     void cancelOrder(Long orderId);
 }
