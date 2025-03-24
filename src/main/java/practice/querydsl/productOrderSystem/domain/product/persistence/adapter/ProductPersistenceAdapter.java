@@ -1,12 +1,9 @@
 package practice.querydsl.productOrderSystem.domain.product.persistence.adapter;
 
-import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
-import practice.querydsl.productOrderSystem.domain.business.domain.Business;
 import practice.querydsl.productOrderSystem.domain.product.domain.Product;
-import practice.querydsl.productOrderSystem.domain.product.domain.type.ProductCategory;
 import practice.querydsl.productOrderSystem.domain.product.persistence.entity.ProductJpaEntity;
 import practice.querydsl.productOrderSystem.domain.product.persistence.mapper.ProductMapper;
 import practice.querydsl.productOrderSystem.domain.product.persistence.port.ProductPersistencePort;
