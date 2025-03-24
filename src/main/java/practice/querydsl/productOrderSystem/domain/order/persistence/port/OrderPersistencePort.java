@@ -4,13 +4,14 @@ import practice.querydsl.productOrderSystem.domain.order.domain.Order;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface OrderPersistencePort {
     void saveOrder(Order order);
 
     List<Order> findOrdersByUserIdAndStatusIn(UserJpaEntity user);
 
-    Order findByOrderId(Long orderId);
+    Optional<Order> findByOrderId(Long orderId);
 
     void deleteOrder(Order order);
 }

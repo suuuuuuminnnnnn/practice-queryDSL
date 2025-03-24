@@ -29,6 +29,9 @@ public class OrderProductService implements OrderProductUseCase {
     @Override
     @Transactional
     public void execute(Long productId, Long quantity, OrderStatus status) {
+        if (quantity <= 0) {
+            throw new CustomException("개수는 0 이하가 될 수 없습니다.", HttpStatus.BAD_REQUEST);
+        }
         log.info("Fetching current user");
         UserJpaEntity userJpaEntity = userUtil.getCurrentUser();
 

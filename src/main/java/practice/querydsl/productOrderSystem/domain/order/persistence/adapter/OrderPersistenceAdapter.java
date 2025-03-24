@@ -13,6 +13,7 @@ import practice.querydsl.productOrderSystem.global.annotation.adapter.Adapter;
 import practice.querydsl.productOrderSystem.global.annotation.adapter.constant.AdapterType;
 
 import java.util.List;
+import java.util.Optional;
 
 import static practice.querydsl.productOrderSystem.domain.order.persistence.entity.QOrderJpaEntity.orderJpaEntity;
 
@@ -43,13 +44,13 @@ public class OrderPersistenceAdapter implements OrderPersistencePort {
     }
 
     @Override
-    public Order findByOrderId(Long orderId) {
+    public Optional<Order> findByOrderId(Long orderId) {
         OrderJpaEntity entity = queryFactory
                 .selectFrom(orderJpaEntity)
                 .where(orderJpaEntity.id.eq(orderId))
                 .fetchOne();
 
-        return orderMapper.toDomain(entity);
+        return Optional.ofNullable(orderMapper.toDomain(entity));
     }
 
     @Override
