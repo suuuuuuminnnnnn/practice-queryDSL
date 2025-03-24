@@ -1,5 +1,5 @@
 package practice.querydsl.productOrderSystem.domain.product.application.useCase;
 
-public interface deleteProductUseCase {
+public interface DeleteProductUseCase {
     void execute(Long productId);
 }
