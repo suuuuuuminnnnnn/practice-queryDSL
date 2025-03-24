@@ -7,5 +7,6 @@ public record UpdateProductRequest(
         ProductCategory category,
         String name,
         String description,
-        Long price) {
+        Long price
+) {
 }
