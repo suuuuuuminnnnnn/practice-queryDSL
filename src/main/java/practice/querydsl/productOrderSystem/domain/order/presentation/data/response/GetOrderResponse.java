@@ -7,7 +7,6 @@ public record GetOrderResponse(
         Long id,
         ProductResponse product,
         Long quantity,
-        Long price,
         Long totalPrice
 ) {
     @Builder

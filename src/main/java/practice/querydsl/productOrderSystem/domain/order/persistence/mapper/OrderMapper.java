@@ -55,7 +55,6 @@ public class OrderMapper {
                         .businessName(product.getBusiness() != null ? product.getBusiness().getName() : null)
                         .build())
                 .quantity(order.getQuantity())
-                .price(product.getPrice())
                 .totalPrice(product.getPrice() * order.getQuantity())
                 .build();
     }
