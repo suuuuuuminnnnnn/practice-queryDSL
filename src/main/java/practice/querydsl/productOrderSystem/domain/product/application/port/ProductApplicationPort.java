@@ -3,6 +3,7 @@ package practice.querydsl.productOrderSystem.domain.product.application.port;
 import practice.querydsl.productOrderSystem.domain.business.domain.Business;
 import practice.querydsl.productOrderSystem.domain.product.domain.Product;
 import practice.querydsl.productOrderSystem.domain.product.domain.type.ProductCategory;
+import practice.querydsl.productOrderSystem.domain.product.presentation.data.request.SearchProductsRequest;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface ProductApplicationPort {
 
     List<Product> findAllProducts();
 
-    List<Product> searchProducts(ProductCategory category, String name, Long minPrice, Long maxPrice, Long businessId);
+    List<Product> searchProducts(SearchProductsRequest request);
 
     void updateProduct(Long id, ProductCategory category, String name, String description, Long price);
 
