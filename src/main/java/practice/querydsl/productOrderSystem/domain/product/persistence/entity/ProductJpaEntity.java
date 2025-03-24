@@ -35,7 +35,7 @@ public class ProductJpaEntity {
     @JoinColumn(name = "product_user")
     private UserJpaEntity user;
 
-    public void update(ProductCategory category, String name, Long price, String description) {
+    public void update(ProductCategory category, String name, String description, Long price) {
         this.category = category;
         this.name = name;
         this.price = price;
