@@ -3,6 +3,7 @@ package practice.querydsl.productOrderSystem.domain.product.persistence.port;
 import practice.querydsl.productOrderSystem.domain.business.domain.Business;
 import practice.querydsl.productOrderSystem.domain.product.domain.Product;
 import practice.querydsl.productOrderSystem.domain.product.domain.type.ProductCategory;
+import practice.querydsl.productOrderSystem.domain.product.presentation.data.request.SearchProductsRequest;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ public interface ProductPersistencePort {
 
     void deleteProduct(Long productId);
 
-    List<Product> findProductsByCategoryAndNameAndPriceRangeAndBusiness(ProductCategory category, String name, Long minPrice, Long maxPrice, Business business);
+    List<Product> findProductsByConditions(SearchProductsRequest request);
 }
