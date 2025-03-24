@@ -35,7 +35,10 @@ public class ProductJpaEntity {
     @JoinColumn(name = "product_user")
     private UserJpaEntity user;
 
-    public ProductJpaEntity(Long id) {
-        this.id = id;
+    public void update(ProductCategory category, String name, Long price, String description) {
+        this.category = category;
+        this.name = name;
+        this.price = price;
+        this.description = description;
     }
 }
