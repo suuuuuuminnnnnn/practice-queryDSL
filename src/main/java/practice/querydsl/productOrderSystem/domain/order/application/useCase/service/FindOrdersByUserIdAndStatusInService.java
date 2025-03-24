@@ -2,6 +2,7 @@ package practice.querydsl.productOrderSystem.domain.order.application.useCase.se
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import practice.querydsl.productOrderSystem.domain.order.application.useCase.FindOrdersByUserIdAndStatusInUseCase;
 import practice.querydsl.productOrderSystem.domain.order.persistence.mapper.OrderMapper;
 import practice.querydsl.productOrderSystem.domain.order.persistence.port.OrderPersistencePort;
@@ -20,6 +21,7 @@ public class FindOrdersByUserIdAndStatusInService implements FindOrdersByUserIdA
     private final OrderMapper orderMapper;
 
     @Override
+    @Transactional(readOnly = true)
     public List<GetOrderResponse> execute() {
         UserJpaEntity userJpaEntity = userUtil.getCurrentUser();
 

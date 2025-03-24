@@ -25,6 +25,10 @@ public class UserJpaEntity {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
+    public UserJpaEntity(Long id) {
+        this.id = id;
+    }
+
     public void addMoney(Long money) {
         this.money += money;
     }

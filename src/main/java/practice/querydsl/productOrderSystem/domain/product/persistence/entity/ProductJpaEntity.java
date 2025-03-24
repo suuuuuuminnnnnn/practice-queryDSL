@@ -34,4 +34,8 @@ public class ProductJpaEntity {
     @ManyToOne
     @JoinColumn(name = "product_user")
     private UserJpaEntity user;
+
+    public ProductJpaEntity(Long id) {
+        this.id = id;
+    }
 }

@@ -33,9 +33,10 @@ public class OrderPersistenceAdapter implements OrderPersistencePort {
     public List<Order> findOrdersByUserIdAndStatusIn(UserJpaEntity user) {
         return queryFactory
                 .selectFrom(orderJpaEntity)
-                .where(orderJpaEntity.user.id.eq(user.getId())
-                        .and(orderJpaEntity.status.in(OrderStatus.CANCELED, OrderStatus.DELIVERED)))
-                .fetchAll()
+                .leftJoin(orderJpaEntity.user).fetchJoin()
+                .leftJoin(orderJpaEntity.product).fetchJoin()
+                .where(orderJpaEntity.user.id.eq(user.getId()))
+                .fetch()
                 .stream()
                 .map(orderMapper::toDomain)
                 .toList();

@@ -24,6 +24,7 @@ public class ProductPersistenceAdapter implements ProductPersistencePort {
     public Product findProductByProductId(Long productId) {
         ProductJpaEntity entity = queryFactory
                 .selectFrom(productJpaEntity)
+                .leftJoin(productJpaEntity.business).fetchJoin()
                 .where(productJpaEntity.id.eq(productId))
                 .fetchOne();
 

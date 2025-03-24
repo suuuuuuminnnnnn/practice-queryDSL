@@ -25,6 +25,7 @@ public class OrderJpaEntity {
     @ManyToOne
     private ProductJpaEntity product;
 
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
     private Long quantity;

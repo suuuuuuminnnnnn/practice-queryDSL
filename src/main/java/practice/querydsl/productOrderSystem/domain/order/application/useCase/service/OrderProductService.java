@@ -1,6 +1,8 @@
 package practice.querydsl.productOrderSystem.domain.order.application.useCase.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import practice.querydsl.productOrderSystem.domain.order.application.useCase.OrderProductUseCase;
@@ -11,8 +13,10 @@ import practice.querydsl.productOrderSystem.domain.product.domain.Product;
 import practice.querydsl.productOrderSystem.domain.product.persistence.port.ProductPersistencePort;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
 import practice.querydsl.productOrderSystem.domain.user.persistence.mapper.UserMapper;
+import practice.querydsl.productOrderSystem.global.exception.CustomException;
 import practice.querydsl.productOrderSystem.global.util.UserUtil;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrderProductService implements OrderProductUseCase {
@@ -25,6 +29,7 @@ public class OrderProductService implements OrderProductUseCase {
     @Override
     @Transactional
     public void execute(Long productId, Long quantity, OrderStatus status) {
+        log.info("Fetching current user");
         UserJpaEntity userJpaEntity = userUtil.getCurrentUser();
 
         Product product = productPersistencePort.findProductByProductId(productId);
@@ -35,7 +40,11 @@ public class OrderProductService implements OrderProductUseCase {
                 .user(userMapper.toDomain(userJpaEntity))
                 .build();
 
-        userJpaEntity.removeMoney(product.getPrice());
+        if (userJpaEntity.getMoney() < 0 || userJpaEntity.getMoney() < product.getPrice() * quantity) {
+            throw new CustomException("잔액이 부족합니다.", HttpStatus.BAD_REQUEST);
+        }
+
+        userJpaEntity.removeMoney(product.getPrice() * quantity);
 
         orderPersistencePort.saveOrder(order);
     }

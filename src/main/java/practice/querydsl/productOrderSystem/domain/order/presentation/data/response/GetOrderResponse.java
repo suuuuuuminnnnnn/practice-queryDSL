@@ -1,13 +1,23 @@
 package practice.querydsl.productOrderSystem.domain.order.presentation.data.response;
 
 import lombok.Builder;
-import practice.querydsl.productOrderSystem.domain.product.domain.Product;
 
 @Builder
 public record GetOrderResponse(
         Long id,
-        Product product,
+        ProductResponse product,
         Long quantity,
-        Long price
+        Long price,
+        Long totalPrice
 ) {
+    @Builder
+    public record ProductResponse(
+            Long id,
+            String category,
+            String name,
+            Long price,
+            String description,
+            String businessName
+    ) {
+    }
 }
