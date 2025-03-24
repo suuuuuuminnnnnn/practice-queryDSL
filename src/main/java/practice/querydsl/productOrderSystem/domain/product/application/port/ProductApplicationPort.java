@@ -7,7 +7,7 @@ import practice.querydsl.productOrderSystem.domain.product.domain.type.ProductCa
 import java.util.List;
 
 public interface ProductApplicationPort {
-    void registerProduct(ProductCategory category, String name, String description, Long price, Business business);
+    void saveProduct(ProductCategory category, String name, String description, Long price, Business business);
 
     List<Product> findAllProducts();
 
