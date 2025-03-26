@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import practice.querydsl.productOrderSystem.domain.product.persistence.mapper.ProductMapper;
 import practice.querydsl.productOrderSystem.domain.review.domain.Review;
 import practice.querydsl.productOrderSystem.domain.review.persistence.entity.ReviewJpaEntity;
+import practice.querydsl.productOrderSystem.domain.review.presentation.data.response.GetReviewResponse;
 import practice.querydsl.productOrderSystem.domain.user.persistence.mapper.UserMapper;
 
 @Component
@@ -30,6 +31,14 @@ public class ReviewMapper {
                 .content(review.getContent())
                 .product(productMapper.toEntity(review.getProduct()))
                 .user(userMapper.toEntity(review.getAuthor()))
+                .build();
+    }
+
+    public GetReviewResponse toResponse(ReviewJpaEntity review) {
+        return GetReviewResponse.builder()
+                .title(review.getTitle())
+                .content(review.getContent())
+                .product(productMapper.toDomain(review.getProduct()))
                 .build();
     }
 }

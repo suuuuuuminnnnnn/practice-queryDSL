@@ -1,6 +1,7 @@
 package practice.querydsl.productOrderSystem.domain.order.presentation.data.response;
 
 import lombok.Builder;
+import practice.querydsl.productOrderSystem.domain.product.domain.type.ProductCategory;
 
 @Builder
 public record GetOrderResponse(
@@ -12,7 +13,7 @@ public record GetOrderResponse(
     @Builder
     public record ProductResponse(
             Long id,
-            String category,
+            ProductCategory category,
             String name,
             Long price,
             String description,

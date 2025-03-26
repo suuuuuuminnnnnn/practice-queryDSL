@@ -9,6 +9,8 @@ import practice.querydsl.productOrderSystem.domain.order.persistence.entity.Orde
 import practice.querydsl.productOrderSystem.domain.product.persistence.entity.ProductJpaEntity;
 import practice.querydsl.productOrderSystem.domain.user.persistence.entity.UserJpaEntity;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Entity
 @Table(name = "review")
@@ -24,6 +26,8 @@ public class ReviewJpaEntity {
     private String title;
 
     private String content;
+
+    private LocalDateTime createdAt;
 
     @ManyToOne
     @JoinColumn(name = "review_product")

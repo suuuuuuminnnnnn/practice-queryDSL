@@ -48,7 +48,7 @@ public class OrderMapper {
                 .id(order.getId())
                 .product(GetOrderResponse.ProductResponse.builder()
                         .id(product.getId())
-                        .category(String.valueOf(product.getCategory()))
+                        .category(product.getCategory())
                         .name(product.getName())
                         .price(product.getPrice())
                         .description(product.getDescription())

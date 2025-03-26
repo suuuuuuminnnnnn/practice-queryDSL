@@ -76,8 +76,8 @@ public class ProductPersistenceAdapter implements ProductPersistencePort {
         if (request.category() != null) {
             conditions.add(productJpaEntity.category.eq(request.category()));
         }
-        if (request.name() != null) {
-            conditions.add(productJpaEntity.name.eq(request.name()));
+        if (request.name() != null && !request.name().isBlank()) {
+            conditions.add(productJpaEntity.name.containsIgnoreCase(request.name()));
         }
         if (request.minPrice() != null) {
             conditions.add(productJpaEntity.price.goe(request.minPrice()));
